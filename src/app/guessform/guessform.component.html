@@ -1,1 +1,16 @@
-<p>guessform works!</p>
+<form class="row g-3" #guessForm="ngForm" (ngSubmit)="addToGuesses()">
+    <div class="col-auto">
+        <input type="text" class="form-control" 
+            id="guess" name="guess" [(ngModel)]="guess" placeholder="Enter Guess" required> 
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-3" [disabled]="guessForm.form.invalid">Guess</button>
+    </div>
+</form>
+<div class="col-auto">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item" *ngFor="let g of previous_guesses">
+            {{ g }}
+        </li>
+    </ul>
+</div>

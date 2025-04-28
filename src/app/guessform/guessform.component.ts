@@ -23,4 +23,12 @@ export class GuessformComponent {
 
     this.guess = "";
   }
+
+  checkGuess() {
+    this.wordleService.getRequest().subscribe(
+      (respData) => {
+        this.response = respData;
+      }
+    );
+  }
 }

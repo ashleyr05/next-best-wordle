@@ -1,7 +1,17 @@
+<!-- Sources used: https://stackoverflow.com/questions/44840735/change-vs-ngmodelchange-in-angular -->
+
 <form class="row g-3" #guessForm="ngForm" (ngSubmit)="addToGuesses()">
     <div class="col-auto">
-        <input type="text" class="form-control" 
-            id="guess" name="guess" [(ngModel)]="guess" placeholder="Enter Guess" required> 
+        <input 
+            type="text" 
+            class="form-control" 
+            id="guess" 
+            name="guess" 
+            [(ngModel)]="guess" 
+            placeholder="Enter Guess" 
+            required
+            (ngModelChange)="checkGuess($event)"
+        > 
     </div>
     <div class="col-auto">
         <button type="submit" class="btn btn-primary mb-3" [disabled]="guessForm.form.invalid">Guess</button>

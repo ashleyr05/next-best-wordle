@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { WordleService } from '../wordle.service';
 
 @Component({
@@ -7,28 +7,37 @@ import { WordleService } from '../wordle.service';
   templateUrl: './guessform.component.html',
   styleUrl: './guessform.component.css'
 })
-export class GuessformComponent {
+export class GuessformComponent implements OnInit {
   guess: string = "";
   previous_guesses: Array<string> = [];
-  response:any;
+  message: string = "";
+  target_word = "";
 
   constructor(
     private wordleService:WordleService
-  ) {
-    this.guess = "";
+  ) { }
+
+  ngOnInit() {
+    this.fetchTargetWord();
   }
 
   addToGuesses() {
     this.previous_guesses.push(this.guess);
 
     this.guess = "";
+    console.log(this.previous_guesses);
   }
 
-  checkGuess() {
+  fetchTargetWord() {
     this.wordleService.getRequest().subscribe(
       (respData) => {
-        this.response = respData;
+        this.target_word = respData.target_word;
       }
     );
+    console.log("TARGETWORD", this.target_word)
+  }
+
+  checkGuess(guess: string) {
+    
   }
 }

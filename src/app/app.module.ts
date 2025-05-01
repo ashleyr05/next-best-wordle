@@ -5,11 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GuessformComponent } from './guessform/guessform.component';
 import { provideHttpClient } from '@angular/common/http';
+import { GuesslineComponent } from './guessline/guessline.component';
+import { GuessboxComponent } from './guessbox/guessbox.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GuessformComponent
+    GuessformComponent,
+    GuesslineComponent,
+    GuessboxComponent
   ],
   imports: [
     BrowserModule,

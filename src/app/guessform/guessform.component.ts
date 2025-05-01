@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { WordleService } from '../wordle.service';
 
+//Sources used: https://angular.dev/api/core/OnInit, https://angular.dev/api/common/NgStyle
+
 @Component({
   selector: 'app-guessform',
   standalone: false,
@@ -10,8 +12,7 @@ import { WordleService } from '../wordle.service';
 export class GuessformComponent implements OnInit {
   guess: string = "";
   previous_guesses: Array<string> = [];
-  message: string = "";
-  target_word = "";
+  target_word = "computer";
 
   constructor(
     private wordleService:WordleService
@@ -19,6 +20,8 @@ export class GuessformComponent implements OnInit {
 
   ngOnInit() {
     this.fetchTargetWord();
+    console.log("TARGETWORD", this.target_word)
+
   }
 
   addToGuesses() {
@@ -34,10 +37,7 @@ export class GuessformComponent implements OnInit {
         this.target_word = respData.target_word;
       }
     );
-    console.log("TARGETWORD", this.target_word)
   }
 
-  checkGuess(guess: string) {
-    
-  }
+  newGame() { }
 }

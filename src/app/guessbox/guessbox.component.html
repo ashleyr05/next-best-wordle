@@ -1,0 +1,11 @@
+<div class="d-flex justify-content-center align-items-center" 
+    style="width: 50px; height: 50px; color: white;"
+    [ngStyle]="{
+        'background-color': color === 'green' ? 'green' :
+            color === 'gold' ? 'gold' : 
+            'grey'
+    }"
+    [ngClass]="{ 'fw-bold': true }"
+>
+    {{ letter.toUpperCase() }}
+</div>

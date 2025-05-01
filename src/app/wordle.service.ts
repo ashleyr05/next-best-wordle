@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,6 @@ export class WordleService {
   ) { }
 
   getRequest():Observable<any> {
-    return this.http.get("http://localhost:8080/next-best-wordle/wordle_api.php");
+    return this.http.get("https://cs4640.cs.virginia.edu/zwu6su/hw9/wordle_api.php");
   }
 }

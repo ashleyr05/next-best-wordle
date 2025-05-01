@@ -1,0 +1,11 @@
+<div class="d-flex flex-wrap align-items-center">
+    <ng-container *ngFor="let l of guess.split(''); let i = index">
+        <app-guessbox [letter]="l" [color]="letter_colors[i]"></app-guessbox>
+    </ng-container>
+</div>
+<div class="d-flex flex-wrap align-items-center" [ngClass]="{ 'fw-bold': true }">
+    <p>{{ length_message }}</p>
+</div>
+<div class="d-flex flex-wrap align-items-center" *ngIf="guess === target_word">
+    <h1>You Won!</h1>
+</div>

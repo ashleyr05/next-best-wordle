@@ -1,4 +1,6 @@
-<!-- Sources used: https://stackoverflow.com/questions/44840735/change-vs-ngmodelchange-in-angular -->
+<div class="mb-3">
+    <a href="" class="btn btn-success" (click)="newGame()">New Game!</a>
+</div>
 
 <form class="row g-3" #guessForm="ngForm" (ngSubmit)="addToGuesses()">
     <div class="col-auto">
@@ -10,7 +12,6 @@
             [(ngModel)]="guess" 
             placeholder="Enter Guess" 
             required
-            (ngModelChange)="checkGuess($event)"
         > 
     </div>
     <div class="col-auto">
@@ -18,9 +19,7 @@
     </div>
 </form>
 <div class="col-auto">
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item" *ngFor="let g of previous_guesses">
-            {{ g }}
-        </li>
-    </ul>
+    <div class="" *ngFor="let g of previous_guesses">
+        <app-guessline guess="{{g}}" target_word="{{target_word}}"></app-guessline>
+    </div>
 </div>
